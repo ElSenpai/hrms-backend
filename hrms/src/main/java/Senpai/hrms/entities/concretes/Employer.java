@@ -26,10 +26,13 @@ public class Employer extends User {
 	
 	@Column(name="company_name")
 	private String companyName;
+	
+	@Column(name="department_id")
+	private int departmentId;
 	public Employer() {}
-	public Employer( String website, int phoneNumber, String companyName) {
+	public Employer( String website, int phoneNumber, String companyName,int departmentId) {
 		super();
-		
+		this.departmentId=departmentId;
 		this.website = website;
 		this.phoneNumber = phoneNumber;
 		this.companyName = companyName;
