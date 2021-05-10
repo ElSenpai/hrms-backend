@@ -27,10 +27,13 @@ public class Employer extends User {
 	@Column(name="company_name")
 	private String companyName;
 	
+	@Column(name="is_activated")
+	private boolean isActivated;
+	
 	public Employer() {}
-	public Employer( String website, int phoneNumber, String companyName) {
+	public Employer( String website, int phoneNumber, String companyName,boolean isActivated) {
 		super();
-		
+		this.isActivated =isActivated;
 		this.website = website;
 		this.phoneNumber = phoneNumber;
 		this.companyName = companyName;
