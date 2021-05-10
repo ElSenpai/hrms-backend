@@ -25,6 +25,8 @@ public class VerificationByCode extends Verification {
 		this.verificationCode = verificationCode;
 		this.employerUserId = employerUserId;
 		
+		
+		
 	}
 	
 }
