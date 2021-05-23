@@ -1,5 +1,8 @@
 package Senpai.hrms.business.abstracts;
 
+import Senpai.hrms.core.utilities.results.DataResult;
+import Senpai.hrms.entities.concretes.User;
+
 //import java.util.List;
 
 //import Senpai.hrms.core.utilities.results.DataResult;
@@ -14,4 +17,6 @@ public interface UserService {
 //	
 //	DataResult<List<User>> getAll();
 //	DataResult<User> get(int id);
+	
+	DataResult<User> checkEmail(String email);
 }

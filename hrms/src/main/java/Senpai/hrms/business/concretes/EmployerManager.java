@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Senpai.hrms.business.abstracts.EmployerService;
+import Senpai.hrms.business.abstracts.UserService;
 import Senpai.hrms.core.utilities.results.DataResult;
 import Senpai.hrms.core.utilities.results.ErrorResult;
 import Senpai.hrms.core.utilities.results.Result;
@@ -18,17 +19,19 @@ import Senpai.hrms.entities.concretes.Job;
 public class EmployerManager implements EmployerService{
 	
 	private EmployerDao employerDao;
+	private UserService userService;
 	
     @Autowired
-	public EmployerManager(EmployerDao employerDao) {
+	public EmployerManager(EmployerDao employerDao,UserService userService) {
 		super();
 		this.employerDao = employerDao;
+		this.userService=userService;
 	}
 
 	@Override
 	public Result add(Employer employer) {
 		
-		if(this.checkEmailExist(employer.getEmail()).getData() !=null) {
+	if(this.userService.checkEmail(employer.getEmail()).getData() !=null) {
 			
 			return new ErrorResult("Email exist");
 		}
@@ -60,10 +63,6 @@ public class EmployerManager implements EmployerService{
 //		
 //		return new SuccessDataResult<Employer>( this.employerDao.findById(id).get());
 //	}
-    private DataResult<Employer> checkEmailExist(String email) {
-		
-		return new SuccessDataResult<Employer>(this.employerDao.findByEmail(email));
-		
-	}
+
 
 }

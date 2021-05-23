@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Senpai.hrms.business.abstracts.JobHunterService;
+import Senpai.hrms.business.abstracts.UserService;
 import Senpai.hrms.core.utilities.results.DataResult;
 import Senpai.hrms.core.utilities.results.ErrorResult;
 import Senpai.hrms.core.utilities.results.Result;
@@ -18,17 +19,19 @@ import Senpai.hrms.entities.concretes.JobHunter;
 public class JobHunterManager implements JobHunterService {
 	
 	private JobHunterDao jobHunterDao;
+	private UserService userService;
 
 	@Autowired
-	public JobHunterManager(JobHunterDao jobHunterDao) {
+	public JobHunterManager(JobHunterDao jobHunterDao,UserService userService) {
 		super();
 		this.jobHunterDao = jobHunterDao;
+		this.userService=userService;
 	}
 
 	@Override
 	public Result add(JobHunter jobHunt) {
 		
-		if((this.checkMailExist(jobHunt.getEmail()).getData() != null)&&(this.checkTcExist(jobHunt.getNationalIdentity()).getData() != null)) {
+		if((this.userService.checkEmail(jobHunt.getEmail()).getData() !=null )&&(this.checkTcExist(jobHunt.getNationalIdentity()).getData() !=null)) {
 			
 			return new ErrorResult("Mail or TcNo exist");
 		}
@@ -62,14 +65,10 @@ public class JobHunterManager implements JobHunterService {
 //		// TODO Auto-generated method stub
 //		return new SuccessDataResult<JobHunter>( this.jobHunterDao.findById(id).get());
 //	}
-    private DataResult<JobHunter> checkMailExist(String email) {
-		
-		return new SuccessDataResult<JobHunter>(this.jobHunterDao.findByEmail(email));
-		
-	}
+    
    private DataResult<JobHunter> checkTcExist(String tcNo) {
 	
-	return new SuccessDataResult<JobHunter>(this.jobHunterDao.findByTcno(tcNo));
+	return new SuccessDataResult<JobHunter>(this.jobHunterDao.findBynationalIdentity(tcNo));
 	
 }
 

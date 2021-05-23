@@ -13,6 +13,7 @@ import Senpai.hrms.core.utilities.results.ErrorResult;
 import Senpai.hrms.core.utilities.results.Result;
 import Senpai.hrms.core.utilities.results.SuccessDataResult;
 import Senpai.hrms.core.utilities.results.SuccessResult;
+
 import Senpai.hrms.entities.concretes.Employer;
 import Senpai.hrms.entities.concretes.JobHunter;
 
@@ -22,11 +23,13 @@ public class AuthManager implements AuthService {
 	private JobHunterService jobHunterService;
 	private EmployerService employerService;
 	
+	
     @Autowired
 	public AuthManager(JobHunterService jobHunterService,EmployerService employerService) {
 		super();
 		this.jobHunterService = jobHunterService;
 		this.employerService=employerService;
+		
 	}
 
 	@Override
@@ -36,6 +39,8 @@ public class AuthManager implements AuthService {
 		
 		if(this.confirmPass(jobHunter.getPassword(), confirmPassword).isSuccess() )
 		{
+			
+			
 			var register=this.jobHunterService.add(jobHunter);
 			return new SuccessDataResult<JobHunter>(register.getMessage());
 		}
