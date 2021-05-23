@@ -53,8 +53,13 @@ public class AuthManager implements AuthService {
 	public DataResult<Employer> registerEmployer(Employer employer, String confirmPassword) {
 		
 		if(this.confirmPass(employer.getPassword(), confirmPassword).isSuccess()) {
-			this.employerService.add(employer);
-			return new SuccessDataResult<Employer>(employer,"Register Success");
+			if(this.checkEmailDomain(employer.getEmail(), employer.getWebsite()).isSuccess()) {
+				
+			   this.employerService.add(employer);
+			   return new SuccessDataResult<Employer>(employer,"Register Success");
+			}
+			return new ErrorDataResult<Employer>(employer,"Domain not match");
+			
 		}
 		return new ErrorDataResult<Employer>("register failed");
 	}
@@ -70,8 +75,18 @@ public class AuthManager implements AuthService {
 		return new ErrorResult("Password not match!");
 	
 	}
+	
+	private Result checkEmailDomain(String email,String website) {
+		
+		String[] mail=email.split("@",2);
+		String web=website.substring(4);
+		if(mail[1].equals(web)) {
+			return new SuccessResult("Domain Match");
+		}
+		return new ErrorResult("Domain not match");
+	}
  
-
+ 
 	
 
 	

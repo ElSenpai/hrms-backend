@@ -10,7 +10,9 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
 import lombok.NoArgsConstructor;
+
 
 @Data
 @Table(name="verifications")
@@ -26,8 +28,10 @@ public class Verification {
     @Column(name="confirmed")
 	private boolean confirmed;
     
-    @Column(name="confirm_date")
-	private LocalDate confirmDate;
+   
+    @Column(name="confirm_date",columnDefinition = "Date default CURRENT_DATE")
+	private LocalDate confirmDate=LocalDate.now();
+
 
    
 }
