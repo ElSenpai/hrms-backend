@@ -8,13 +8,16 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name="users")
 @Inheritance(strategy = InheritanceType.JOINED)
-
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue
@@ -27,12 +30,6 @@ public class User {
 	@Column(name="password")
 	private String password;
 
-	public User() {}
-	public User(int userId, String email, String password) {
-		super();
-		this.userId = userId;
-		this.email = email;
-		this.password = password;
-	}
+	
 	
 }

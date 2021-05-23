@@ -5,12 +5,16 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name="verify_employer_by_codes")
 @PrimaryKeyJoinColumn(name="id")
+@AllArgsConstructor
+@NoArgsConstructor
 public class VerificationByCode extends Verification {
 
 	@Column(name="verification_code")
@@ -19,14 +23,6 @@ public class VerificationByCode extends Verification {
 	@Column(name="employer_user_id")
 	private int employerUserId;
 	
-	public VerificationByCode() {}
-	public VerificationByCode(String verificationCode, int employerUserId) {
-		super();
-		this.verificationCode = verificationCode;
-		this.employerUserId = employerUserId;
-		
-		
-		
-	}
+	
 	
 }

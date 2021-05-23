@@ -4,35 +4,72 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Senpai.hrms.business.abstracts.AuthService;
+import Senpai.hrms.business.abstracts.EmployerService;
 import Senpai.hrms.business.abstracts.JobHunterService;
+
+import Senpai.hrms.core.utilities.results.DataResult;
+import Senpai.hrms.core.utilities.results.ErrorDataResult;
+import Senpai.hrms.core.utilities.results.ErrorResult;
+import Senpai.hrms.core.utilities.results.Result;
+import Senpai.hrms.core.utilities.results.SuccessDataResult;
+import Senpai.hrms.core.utilities.results.SuccessResult;
+import Senpai.hrms.entities.concretes.Employer;
 import Senpai.hrms.entities.concretes.JobHunter;
+
 @Service
 public class AuthManager implements AuthService {
 	
 	private JobHunterService jobHunterService;
+	private EmployerService employerService;
 	
     @Autowired
-	public AuthManager(JobHunterService jobHunterService) {
+	public AuthManager(JobHunterService jobHunterService,EmployerService employerService) {
 		super();
 		this.jobHunterService = jobHunterService;
+		this.employerService=employerService;
 	}
 
 	@Override
-	public void register(JobHunter jobHunt, String confirmPass) {
+	public DataResult<JobHunter> registerJobHunter(JobHunter jobHunter, String confirmPassword) {
 		
-		if(jobHunt.getEmail()==confirmPass) {
-			this.jobHunterService.add(jobHunt);
-		} else {
-			System.out.println("password did not match!");
+		
+		
+		if(this.confirmPass(jobHunter.getPassword(), confirmPassword).isSuccess() )
+		{
+			var register=this.jobHunterService.add(jobHunter);
+			return new SuccessDataResult<JobHunter>(register.getMessage());
 		}
+		return new ErrorDataResult<JobHunter>("register failed");
+		
 		
 	}
 
 	@Override
-	public void login(JobHunter jobHunt) {
-		//after dto
+	public DataResult<Employer> registerEmployer(Employer employer, String confirmPassword) {
 		
+		if(this.confirmPass(employer.getPassword(), confirmPassword).isSuccess()) {
+			this.employerService.add(employer);
+			return new SuccessDataResult<Employer>(employer,"Register Success");
+		}
+		return new ErrorDataResult<Employer>("register failed");
 	}
+	
+	
+	private Result confirmPass(String password,String confirmPassword) 
+	{	
+		
+		if (password.equals(confirmPassword)) {
+			
+			return new SuccessResult("Password Match!");
+		}
+		return new ErrorResult("Password not match!");
+	
+	}
+ 
+
+	
+
+	
 	
 	
 

@@ -1,15 +1,17 @@
 package Senpai.hrms.business.abstracts;
 
-import java.util.List;
+//import java.util.List;
 
-import Senpai.hrms.entities.concretes.User;
+//import Senpai.hrms.core.utilities.results.DataResult;
+//import Senpai.hrms.core.utilities.results.Result;
+//import Senpai.hrms.entities.concretes.User;
 
 public interface UserService {
 
-	void add(User user);
-	void update(User user);
-	void delete(User user);
-	
-	List<User> getAll();
-	User get(int id);
+//	Result add(User user);
+//	Result update(User user);
+//	Result delete(User user);
+//	
+//	DataResult<List<User>> getAll();
+//	DataResult<User> get(int id);
 }

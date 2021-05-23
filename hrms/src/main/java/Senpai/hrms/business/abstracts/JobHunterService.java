@@ -2,14 +2,16 @@ package Senpai.hrms.business.abstracts;
 
 import java.util.List;
 
+import Senpai.hrms.core.utilities.results.DataResult;
+import Senpai.hrms.core.utilities.results.Result;
 import Senpai.hrms.entities.concretes.JobHunter;
 
 public interface JobHunterService {
 
-	void add(JobHunter jobHunt);
-	void update(JobHunter jobHunt);
-	void delete(JobHunter jobHunt);
+	Result add(JobHunter jobHunt);
+	//Result update(JobHunter jobHunt);
+	//Result delete(JobHunter jobHunt);
 	
-	List<JobHunter> getAll();
-	JobHunter get(int id);
+	DataResult<List<JobHunter>> getAll();
+	//DataResult<JobHunter> get(int id);
 }

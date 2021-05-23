@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Senpai.hrms.business.abstracts.JobService;
+import Senpai.hrms.core.utilities.results.DataResult;
+import Senpai.hrms.core.utilities.results.Result;
+import Senpai.hrms.core.utilities.results.SuccessDataResult;
+import Senpai.hrms.core.utilities.results.SuccessResult;
 import Senpai.hrms.entities.concretes.Job;
 
 @RestController
@@ -26,25 +30,16 @@ public class JobsController {
 		this.jobService = jobService;
 	}
 	@PostMapping("/add")
-	public void add(@RequestBody Job job) {
-		this.jobService.add(job);
+	public Result add(@RequestBody Job job) {
+	return	this.jobService.add(job);
+		
 	}
-	@PostMapping("/update")
-	public void update(@RequestBody Job job) {
-		this.jobService.update(job);
-	}
-	@PostMapping("/delete")
-	public void delete(@RequestBody Job job) {
-		this.jobService.delete(job);
-	}
+	
 	@GetMapping("/getall")
-	public List<Job> getAll(){
+	public DataResult<List<Job>> getAll(){
 		return this.jobService.getAll();
 	}
 	
-	@GetMapping("/get/{id}")
-	public Job get(@PathVariable("id") int id){
-		return this.jobService.get(id);
-	}
+	
 
 }

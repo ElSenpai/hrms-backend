@@ -8,11 +8,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Table(name="verifications")
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Verification {
     @Id
     @GeneratedValue
@@ -25,12 +29,5 @@ public class Verification {
     @Column(name="confirm_date")
 	private LocalDate confirmDate;
 
-    public Verification() {}
-	public Verification(int id, boolean confirmed, LocalDate confirmDate) {
-		super();
-		this.id = id;
-		
-		this.confirmed = confirmed;
-		this.confirmDate = confirmDate;
-	}
+   
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Senpai.hrms.business.abstracts.EmployerService;
+import Senpai.hrms.core.utilities.results.DataResult;
 import Senpai.hrms.entities.concretes.Employer;
 
 
@@ -27,26 +28,26 @@ public class EmployersController {
 	}
 	
 	@GetMapping("/getall")
-	public List<Employer> getAll(){
+	public DataResult<List<Employer>> getAll(){
 		return this.employerService.getAll();
 	}
 	
-	@GetMapping("/get/{id}")
-	public Employer get( @PathVariable("id") int id){
-		return this.employerService.get(id);
-	}
-	@PostMapping("/add")
-	public void add(@RequestBody Employer employer) {
-		this.employerService.add(employer);
-	}
-	@PostMapping("/update")
-	public void update(@RequestBody Employer employer) {
-		this.employerService.update(employer);
-	}
-	@PostMapping("/delete")
-	public void delete(@RequestBody Employer employer) {
-		this.employerService.delete(employer);
-	}
+//	@GetMapping("/get/{id}")
+//	public Employer get( @PathVariable("id") int id){
+//		return this.employerService.get(id);
+//	}
+//	@PostMapping("/add")
+//	public void add(@RequestBody Employer employer) {
+//		this.employerService.add(employer);
+//	}
+//	@PostMapping("/update")
+//	public void update(@RequestBody Employer employer) {
+//		this.employerService.update(employer);
+//	}
+//	@PostMapping("/delete")
+//	public void delete(@RequestBody Employer employer) {
+//		this.employerService.delete(employer);
+//	}
 	
 	
 

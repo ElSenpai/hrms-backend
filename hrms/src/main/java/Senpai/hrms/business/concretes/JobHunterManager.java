@@ -6,7 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Senpai.hrms.business.abstracts.JobHunterService;
+import Senpai.hrms.core.utilities.results.DataResult;
+import Senpai.hrms.core.utilities.results.ErrorResult;
+import Senpai.hrms.core.utilities.results.Result;
+import Senpai.hrms.core.utilities.results.SuccessDataResult;
+import Senpai.hrms.core.utilities.results.SuccessResult;
 import Senpai.hrms.dataAccess.abstracts.JobHunterDao;
+import Senpai.hrms.entities.concretes.Job;
 import Senpai.hrms.entities.concretes.JobHunter;
 @Service
 public class JobHunterManager implements JobHunterService {
@@ -20,33 +26,51 @@ public class JobHunterManager implements JobHunterService {
 	}
 
 	@Override
-	public void add(JobHunter jobHunt) {
+	public Result add(JobHunter jobHunt) {
+		
+		if((this.checkMailExist(jobHunt.getEmail()).getData() != null)&&(this.checkTcExist(jobHunt.getNationalIdentity()).getData() != null)) {
+			
+			return new ErrorResult("Mail or TcNo exist");
+		}
+		
+		
         this.jobHunterDao.save(jobHunt);
+              return new SuccessResult("Condidate Added");
 		
 	}
 
-	@Override
-	public void update(JobHunter jobHunt) {
-		this.jobHunterDao.save(jobHunt);
-		
-	}
+//	@Override
+//	public Result update(JobHunter jobHunt) {
+//		this.jobHunterDao.save(jobHunt);
+//		return new SuccessResult("Condidate Updated");
+//	}
+//
+//	@Override
+//	public Result delete(JobHunter jobHunt) {
+//		this.jobHunterDao.delete(jobHunt);
+//		return new SuccessResult("Condidate Deleted");
+//	}
 
 	@Override
-	public void delete(JobHunter jobHunt) {
-		this.jobHunterDao.delete(jobHunt);
-		
-	}
-
-	@Override
-	public List<JobHunter> getAll() {
+	public DataResult<List<JobHunter>> getAll() {
 		// TODO Auto-generated method stub
-		return this.jobHunterDao.findAll();
+		return new SuccessDataResult<List<JobHunter>>( this.jobHunterDao.findAll(),"Condidates Listed");
 	}
 
-	@Override
-	public JobHunter get(int id) {
-		// TODO Auto-generated method stub
-		return this.jobHunterDao.findById(id).get();
+//	@Override
+//	public DataResult<JobHunter> get(int id) {
+//		// TODO Auto-generated method stub
+//		return new SuccessDataResult<JobHunter>( this.jobHunterDao.findById(id).get());
+//	}
+    private DataResult<JobHunter> checkMailExist(String email) {
+		
+		return new SuccessDataResult<JobHunter>(this.jobHunterDao.findByEmail(email));
+		
 	}
+   private DataResult<JobHunter> checkTcExist(String tcNo) {
+	
+	return new SuccessDataResult<JobHunter>(this.jobHunterDao.findByTcno(tcNo));
+	
+}
 
 }

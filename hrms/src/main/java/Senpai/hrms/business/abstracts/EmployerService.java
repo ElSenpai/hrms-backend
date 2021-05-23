@@ -2,14 +2,16 @@ package Senpai.hrms.business.abstracts;
 
 import java.util.List;
 
+import Senpai.hrms.core.utilities.results.DataResult;
+import Senpai.hrms.core.utilities.results.Result;
 import Senpai.hrms.entities.concretes.Employer;
 
 public interface EmployerService {
 
-	void add(Employer employer);
-	void update(Employer employer);
-	void delete(Employer employer);
+	Result add(Employer employer);
+	//Result update(Employer employer);
+	//Result delete(Employer employer);
 	
-	List<Employer> getAll();
-	Employer get(int id);
+	DataResult<List<Employer>> getAll();
+	//DataResult<Employer> get(int id);
 }
