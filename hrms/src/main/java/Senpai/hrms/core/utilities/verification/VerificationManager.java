@@ -7,7 +7,7 @@ package Senpai.hrms.core.utilities.verification;
 import org.springframework.stereotype.Service;
 
 @Service
-public class VerificaitonManager implements VerificationService {
+public class VerificationManager implements VerificationService {
 
 	@Override
 	public void verifyByCode(String code,String email) {
