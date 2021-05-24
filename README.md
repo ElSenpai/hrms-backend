@@ -1,7 +1,7 @@
 # HRMS Project
 
 
-## Database Diagram [script](https://github.com/ElSenpai/HRMS_Java/blob/master/hrms/hrms_script.sql)
+## Database Diagram [script](https://github.com/ElSenpai/HRMS_Java/blob/master/hrms.sql)
 
 ![some](https://github.com/ElSenpai/practice/blob/main/html/img/diagram.png)
 
