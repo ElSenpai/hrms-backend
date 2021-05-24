@@ -1,6 +1,6 @@
 package Senpai.hrms.business.abstracts;
 
-public interface VerificationService {
+public interface VerifyCodeService {
 
 	
 }
