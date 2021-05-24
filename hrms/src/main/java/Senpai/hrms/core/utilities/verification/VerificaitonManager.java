@@ -1,5 +1,8 @@
 package Senpai.hrms.core.utilities.verification;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class VerificaitonManager implements VerificationService {
 
 	@Override
