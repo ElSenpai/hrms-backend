@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import Senpai.hrms.business.abstracts.JobService;
 import Senpai.hrms.core.utilities.results.DataResult;
-import Senpai.hrms.core.utilities.results.ErrorDataResult;
+
 import Senpai.hrms.core.utilities.results.ErrorResult;
 import Senpai.hrms.core.utilities.results.Result;
 import Senpai.hrms.core.utilities.results.SuccessDataResult;

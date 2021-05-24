@@ -14,7 +14,7 @@ import Senpai.hrms.core.utilities.results.SuccessDataResult;
 import Senpai.hrms.core.utilities.results.SuccessResult;
 import Senpai.hrms.dataAccess.abstracts.EmployerDao;
 import Senpai.hrms.entities.concretes.Employer;
-import Senpai.hrms.entities.concretes.Job;
+
 @Service
 public class EmployerManager implements EmployerService{
 	

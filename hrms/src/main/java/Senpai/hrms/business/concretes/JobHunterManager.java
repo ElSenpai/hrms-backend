@@ -13,7 +13,7 @@ import Senpai.hrms.core.utilities.results.Result;
 import Senpai.hrms.core.utilities.results.SuccessDataResult;
 import Senpai.hrms.core.utilities.results.SuccessResult;
 import Senpai.hrms.dataAccess.abstracts.JobHunterDao;
-import Senpai.hrms.entities.concretes.Job;
+
 import Senpai.hrms.entities.concretes.JobHunter;
 @Service
 public class JobHunterManager implements JobHunterService {
