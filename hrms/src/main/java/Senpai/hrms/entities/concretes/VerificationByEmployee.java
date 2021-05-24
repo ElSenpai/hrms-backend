@@ -1,8 +1,11 @@
 package Senpai.hrms.entities.concretes;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -10,20 +13,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Table(name="verification_by_employees")
 @Entity
-@Table(name="verify_employer_by_employees")
-@PrimaryKeyJoinColumn(name="id")
 @AllArgsConstructor
 @NoArgsConstructor
-public class VerificationByEmployee extends Verification {
-	
-	
-	@Column(name="employee_user_id")
-	private int employeeUserId;
-	
-	@Column(name="employer_user_id")
-	private int employerUserId;
+public class VerificationByEmployee {
 
+	@Id
+    @GeneratedValue
+    @Column(name="id")
+	private int id;
 	
-
+	 @Column(name="employer_id")
+	private int employerId;
+	
+	 @Column(name="employee_id")
+	private int employeeId;
+	
+	
+	 @Column(name="confirm_date",columnDefinition = "Date default CURRENT_DATE")
+		private LocalDate confirmDate=LocalDate.now();
 }

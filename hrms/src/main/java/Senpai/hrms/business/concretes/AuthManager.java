@@ -47,7 +47,7 @@ public class AuthManager implements AuthService {
 			
 			
 			var register=this.jobHunterService.add(jobHunter);
-			this.veri.verifyByCode();
+			this.veri.verifyByCode(jobHunter.getEmail());
 			return new SuccessDataResult<JobHunter>(register.getMessage());
 		}
 		return new ErrorDataResult<JobHunter>("register failed");
@@ -62,7 +62,7 @@ public class AuthManager implements AuthService {
 			if(this.checkEmailDomain(employer.getEmail(), employer.getWebsite()).isSuccess()) {
 				
 			   this.employerService.add(employer);
-			   this.veri.verifyByEmployee();// bu kadar sahtesi yok
+			   this.veri.verifyByEmployee(employer.getUserId());// bu kadar sahtesi yok
 			   return new SuccessDataResult<Employer>(employer,"Register Success");
 			}
 			return new ErrorDataResult<Employer>(employer,"Domain not match");

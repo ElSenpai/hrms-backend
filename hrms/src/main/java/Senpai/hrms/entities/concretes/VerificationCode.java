@@ -10,28 +10,31 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
 import lombok.NoArgsConstructor;
 
-
 @Data
-@Table(name="verifications")
+@Table(name="verification_codes")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Verification {
-    @Id
+public class VerificationCode {
+
+	@Id
     @GeneratedValue
     @Column(name="id")
 	private int id;
-    
-    @Column(name="confirmed")
-	private boolean confirmed;
-    
-   
-    @Column(name="confirm_date",columnDefinition = "Date default CURRENT_DATE")
-	private LocalDate confirmDate=LocalDate.now();
-
-
-   
+	
+	 @Column(name="User_id")
+	private int userId;
+	
+	 @Column(name="verification_code")
+	 private String code;
+	
+	 @Column(name="confirm_date",columnDefinition = "Date default CURRENT_DATE")
+		private LocalDate confirmDate=LocalDate.now();
+	 
+	
+	
+	
+	
 }
