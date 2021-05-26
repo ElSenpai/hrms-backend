@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import Senpai.hrms.business.abstracts.AuthService;
 import Senpai.hrms.business.abstracts.EmployerService;
 import Senpai.hrms.business.abstracts.JobHunterService;
+import Senpai.hrms.business.abstracts.VerifyCodeService;
 import Senpai.hrms.core.utilities.adapters.MernisService;
 import Senpai.hrms.core.utilities.results.DataResult;
 import Senpai.hrms.core.utilities.results.ErrorDataResult;
@@ -24,15 +25,17 @@ public class AuthManager implements AuthService {
 	private EmployerService employerService;
 	private MernisService mernisService;
 	private VerificationService veri;
+	private VerifyCodeService veriCode;
 	
 	
     @Autowired
-	public AuthManager(JobHunterService jobHunterService,EmployerService employerService,MernisService mernisService,VerificationService veri) {
+	public AuthManager(JobHunterService jobHunterService,VerifyCodeService veriCode,EmployerService employerService,MernisService mernisService,VerificationService veri) {
 		super();
 		this.jobHunterService = jobHunterService;
 		this.employerService=employerService;
 		this.mernisService=mernisService;
 		this.veri=veri;
+		this.veriCode=veriCode;
 	}
 
 	@Override
@@ -47,7 +50,8 @@ public class AuthManager implements AuthService {
 			
 			
 			var register=this.jobHunterService.add(jobHunter);
-			this.veri.verifyByCode(jobHunter.getEmail());
+			this.veriCode.add(jobHunter.getUserId());
+			this.veri.verifyByCode(this.veriCode.generateCode(),jobHunter.getEmail());
 			return new SuccessDataResult<JobHunter>(register.getMessage());
 		}
 		return new ErrorDataResult<JobHunter>("register failed");
