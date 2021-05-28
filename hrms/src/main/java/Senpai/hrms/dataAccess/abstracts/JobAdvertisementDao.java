@@ -11,4 +11,8 @@ public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement,Inte
 
 	@Query("From JobAdvertisement where isActive=true ")
 	List<JobAdvertisement> getByIsActive();
+	
+	//List<JobAdvertisement> getAllByActive(); eger bu yiyor ve sadece trueları getiriyorsa   - bu iki metod denenmemiştir.
+	//List<JobAdvertisement> getAllByActiveNot(); bununda  tahminen falseları getirmesi lazım
+	
 }
