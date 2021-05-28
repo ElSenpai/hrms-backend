@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Senpai.hrms.business.abstracts.EmployerService;
+import Senpai.hrms.business.abstracts.JobAdvertisementService;
 import Senpai.hrms.business.abstracts.UserService;
 import Senpai.hrms.core.utilities.results.DataResult;
 import Senpai.hrms.core.utilities.results.ErrorResult;
@@ -21,11 +22,13 @@ public class EmployerManager implements EmployerService{
 	private EmployerDao employerDao;
 	private UserService userService;
 	
+	
     @Autowired
 	public EmployerManager(EmployerDao employerDao,UserService userService) {
 		super();
 		this.employerDao = employerDao;
 		this.userService=userService;
+		
 	}
 
 	@Override
@@ -57,6 +60,8 @@ public class EmployerManager implements EmployerService{
 		
 		return new SuccessDataResult<List<Employer>>(this.employerDao.findAll(),"Employer Listed");
 	}
+
+	
 
 //	@Override
 //	public DataResult<Employer> get(int id) {

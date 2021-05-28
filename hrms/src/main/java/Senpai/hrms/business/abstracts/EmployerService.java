@@ -14,4 +14,6 @@ public interface EmployerService {
 	
 	DataResult<List<Employer>> getAll();
 	//DataResult<Employer> get(int id);
+	
+	
 }
