@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="users")
 @Inheritance(strategy = InheritanceType.JOINED)
+
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
