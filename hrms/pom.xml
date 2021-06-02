@@ -47,7 +47,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+		   <dependency>
+        <groupId>com.cloudinary</groupId>
+        <artifactId>cloudinary-http44</artifactId>
+        <version>1.29.0</version>
+    </dependency>
 		<dependency>
             <groupId>io.springfox</groupId>
               <artifactId>springfox-swagger2</artifactId>
