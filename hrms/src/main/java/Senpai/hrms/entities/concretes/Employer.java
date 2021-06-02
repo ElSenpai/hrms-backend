@@ -1,5 +1,7 @@
 package Senpai.hrms.entities.concretes;
 
+
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -10,9 +12,10 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import Senpai.hrms.core.entities.concretes.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+
 import lombok.NoArgsConstructor;
 
 @Data

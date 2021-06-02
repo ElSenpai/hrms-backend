@@ -31,10 +31,7 @@ public class JobHunterManager implements JobHunterService {
 	@Override
 	public Result add(JobHunter jobHunt) {
 		
-		if((this.userService.checkEmail(jobHunt.getEmail()).getData() !=null )&&(this.checkTcExist(jobHunt.getNationalIdentity()).getData() !=null)) {
-			
-			return new ErrorResult("Mail or TcNo exist");
-		}
+		
 		
 		
         this.jobHunterDao.save(jobHunt);
@@ -66,10 +63,7 @@ public class JobHunterManager implements JobHunterService {
 //		return new SuccessDataResult<JobHunter>( this.jobHunterDao.findById(id).get());
 //	}
     
-   private DataResult<JobHunter> checkTcExist(String tcNo) {
-	
-	return new SuccessDataResult<JobHunter>(this.jobHunterDao.findBynationalIdentity(tcNo));
+   
 	
 }
 
-}

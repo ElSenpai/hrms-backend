@@ -13,6 +13,7 @@ import Senpai.hrms.core.utilities.results.SuccessDataResult;
 import Senpai.hrms.core.utilities.results.SuccessResult;
 import Senpai.hrms.dataAccess.abstracts.JobAdvertisementDao;
 import Senpai.hrms.entities.concretes.JobAdvertisement;
+import Senpai.hrms.entities.dto.AdvertisementDto;
 
 @Service
 public class JobAdvertisementManager implements JobAdvertisementService {
@@ -42,14 +43,20 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 	}
 
 	@Override
-	public DataResult<List<JobAdvertisement>> getAllSortedByActive() {
+	public DataResult<List<AdvertisementDto>> getAllByActive() {
 		
-		return new SuccessDataResult<List<JobAdvertisement>>(this.advertisement.getByIsActive());
+		return new SuccessDataResult<List<AdvertisementDto>>(this.advertisement.getAdvertisementDetailByActive());
 	}
 	@Override
 	public DataResult<List<JobAdvertisement>> getAllSortedByDate() {
 		Sort sort = Sort.by(Sort.Direction.ASC,"appDeadline");
 		return new SuccessDataResult<List<JobAdvertisement>>(this.advertisement.findAll(sort));
+	}
+
+	@Override
+	public DataResult<List<AdvertisementDto>> getAllDetail() {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<AdvertisementDto>>(this.advertisement.getByAdvertisementDetail());
 	}
 
 }

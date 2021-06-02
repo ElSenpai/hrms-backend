@@ -29,17 +29,20 @@ public class JobAdvertisement {
 	  @Column(name="id")
 	  private int id;
 	
-	 // @Column(name="employer_id")
-	  //private int employerId;
+//	  @Column(name="employer_id")
+//	  private int employerId;
 	
 	 // @Column(name="position_id")
-	  //private int positionId;
+	 // private int positionId;
 	
 	 // @Column(name="city_id")
 	 // private int cityId;
 	
 	  @Column(name="requirements")
 	  private String requirements;
+	  
+	  @Column(name="name")
+	  private String name;
 	
 	  @Column(name="open_positions")
 	  private int openPositions;
