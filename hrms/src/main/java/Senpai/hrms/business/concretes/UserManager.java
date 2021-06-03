@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Senpai.hrms.business.abstracts.UserService;
+import Senpai.hrms.core.entities.concretes.User;
 import Senpai.hrms.core.utilities.results.DataResult;
 import Senpai.hrms.core.utilities.results.SuccessDataResult;
 //import Senpai.hrms.core.utilities.results.DataResult;
@@ -13,7 +14,7 @@ import Senpai.hrms.core.utilities.results.SuccessDataResult;
 //import Senpai.hrms.core.utilities.results.SuccessDataResult;
 //import Senpai.hrms.core.utilities.results.SuccessResult;
 import Senpai.hrms.dataAccess.abstracts.UserDao;
-import Senpai.hrms.entities.concretes.User;
+
 //import Senpai.hrms.entities.concretes.User;
 //import java.util.List;
 @Service

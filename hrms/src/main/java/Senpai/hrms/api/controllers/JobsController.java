@@ -2,6 +2,8 @@ package Senpai.hrms.api.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -29,7 +31,7 @@ public class JobsController {
 		this.jobService = jobService;
 	}
 	@PostMapping("/add")
-	public Result add(@RequestBody Job job) {
+	public Result add(@Valid @RequestBody Job job) {
 	return	this.jobService.add(job);
 		
 	}

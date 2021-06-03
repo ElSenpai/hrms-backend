@@ -1,7 +1,9 @@
 package Senpai.hrms.business.abstracts;
 
+
+import Senpai.hrms.core.entities.concretes.User;
 import Senpai.hrms.core.utilities.results.DataResult;
-import Senpai.hrms.entities.concretes.User;
+
 
 //import java.util.List;
 
