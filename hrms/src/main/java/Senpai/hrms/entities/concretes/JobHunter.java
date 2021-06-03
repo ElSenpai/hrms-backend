@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -76,7 +77,7 @@ public class JobHunter extends User {
 	private List<Link> link;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="jobhunter")
+	@OneToMany(mappedBy="jobhunter", fetch=FetchType.LAZY)
 	private List<CoverLetter> coverLetter;
 	
 

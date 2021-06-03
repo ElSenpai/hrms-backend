@@ -5,13 +5,14 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
+
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -32,7 +33,7 @@ public class Image {
     @Column(name="id")
 	private int id;
 	
-	@NotBlank
+
 	@NotNull
 	@Column(name="url")
 	private String url;
@@ -42,8 +43,8 @@ public class Image {
 	@Column(name="update_date")
 	private LocalDate updateDate;
 	
-	@OneToOne
+	@OneToOne(optional=false,fetch = FetchType.LAZY)
 	@JsonIgnore
-	@JoinColumn(name="job_hunter_id")
+	@JoinColumn(name="job_hunter_id",referencedColumnName = "user_id")
 	private JobHunter jobhunter;
 }
