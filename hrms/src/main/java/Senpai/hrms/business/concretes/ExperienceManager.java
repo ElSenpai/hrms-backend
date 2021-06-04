@@ -36,4 +36,10 @@ public class ExperienceManager implements ExperienceService {
 		return new SuccessDataResult<List<Experience>>(this.experiencedao.findAll(),"exps listed");
 	}
 
+	@Override
+	public DataResult<List<Experience>> getByJobhunterOrderByLeaveDateDesc(int jobHunterId) {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<Experience>>(this.experiencedao.getByJobhunter_userIdOrderByLeaveDateDesc(jobHunterId));
+	}
+
 }

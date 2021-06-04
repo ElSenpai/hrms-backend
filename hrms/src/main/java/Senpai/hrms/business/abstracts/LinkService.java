@@ -10,4 +10,5 @@ public interface LinkService {
 
 	Result add(Link link);
 	DataResult<List<Link>> getAll();
+	DataResult<List<Link>>getByJobhunter(int jobHunterId);
 }

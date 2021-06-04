@@ -11,7 +11,7 @@ import Senpai.hrms.entities.concretes.Image;
 public interface ImageService {
 
 	Result upload (int id,MultipartFile file);
-	
+	DataResult<Image>getByJobhunter(int jobHunterId);
 	DataResult<List<Image>> getAll();
 	
 }

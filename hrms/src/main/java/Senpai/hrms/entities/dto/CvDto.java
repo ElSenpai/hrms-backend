@@ -10,7 +10,13 @@ import Senpai.hrms.entities.concretes.Image;
 import Senpai.hrms.entities.concretes.JobHunter;
 import Senpai.hrms.entities.concretes.Language;
 import Senpai.hrms.entities.concretes.Link;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CvDto {
 
 	private JobHunter jobhunter;

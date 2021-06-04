@@ -16,10 +16,6 @@ import Senpai.hrms.core.utilities.results.SuccessDataResult;
 @Service
 public class ImageHelper implements ImageUploadService {
 
-	 
-	
-	
-	
 	
 	public DataResult<Map> upload(MultipartFile file){
 		

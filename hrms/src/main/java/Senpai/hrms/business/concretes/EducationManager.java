@@ -36,4 +36,10 @@ public class EducationManager implements EducationService{
 		return new SuccessDataResult<List<Education>>(this.educationdao.findAll(),"educations listed");
 	}
 
+	@Override
+	public DataResult<List<Education>> getByJobhunterOrderByGraduationDateDesc(int jobHunterId) {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<Education>>(this.educationdao.getByJobhunter_userIdOrderByGraduationDateDesc(jobHunterId));
+	}
+
 }

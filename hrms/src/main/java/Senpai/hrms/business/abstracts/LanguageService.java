@@ -10,4 +10,5 @@ public interface LanguageService {
 
 	Result add(Language lang);
 	DataResult<List<Language>> getAll();
+	DataResult<List<Language>>getByJobhunter(int jobHunterId);
 }

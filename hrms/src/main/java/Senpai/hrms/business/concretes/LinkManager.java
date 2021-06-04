@@ -36,4 +36,10 @@ public class LinkManager implements LinkService {
 		return new SuccessDataResult<List<Link>>(this.linkdao.findAll(),"Links listed");
 	}
 
+	@Override
+	public DataResult<List<Link>> getByJobhunter(int jobHunterId) {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<Link>>(this.linkdao.getByJobhunter_userId(jobHunterId));
+	}
+
 }

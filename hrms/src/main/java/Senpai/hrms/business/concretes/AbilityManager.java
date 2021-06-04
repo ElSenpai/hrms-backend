@@ -35,4 +35,12 @@ public class AbilityManager implements AbilityService {
 		// TODO Auto-generated method stub
 		return new SuccessDataResult<List<Ability>>(this.abilitydao.findAll(),"abilities listed");
 	}
+
+	
+
+	@Override
+	public DataResult<List<Ability>> getByJobhunter(int JobHunterId) {
+		
+		return new SuccessDataResult<List<Ability>>(this.abilitydao.getByJobhunter_userId(JobHunterId));
+	}
 }

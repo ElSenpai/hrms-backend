@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import Senpai.hrms.business.abstracts.ImageService;
 import Senpai.hrms.core.utilities.results.DataResult;
 import Senpai.hrms.core.utilities.results.Result;
+import Senpai.hrms.core.utilities.results.SuccessDataResult;
 import Senpai.hrms.core.utilities.results.SuccessResult;
 import Senpai.hrms.core.utilities.uploads.ImageHelper;
 import Senpai.hrms.core.utilities.uploads.ImageUploadService;
@@ -54,6 +55,13 @@ public class ImageManager implements ImageService {
 	@Override
 	public DataResult<List<Image>> getAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return new SuccessDataResult<List<Image>>(this.imagedao.findAll());
+	}
+
+
+	@Override
+	public DataResult<Image> getByJobhunter(int jobHunterId) {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<Image>(this.imagedao.getByJobhunter_userId(jobHunterId));
 	}
 }

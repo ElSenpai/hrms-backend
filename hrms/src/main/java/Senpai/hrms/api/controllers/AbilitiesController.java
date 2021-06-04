@@ -47,6 +47,10 @@ public class AbilitiesController {
 		
 		return ResponseEntity.ok(this.abilityService.getAll());
 	}
+	@GetMapping("/getbyjobhunter")
+	public ResponseEntity<?> getByJobhunterId(int jobhunterId){
+		return ResponseEntity.ok(this.abilityService.getByJobhunter(jobhunterId));
+	}
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)

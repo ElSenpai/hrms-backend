@@ -34,4 +34,10 @@ public class LanguageManager implements LanguageService {
 		// TODO Auto-generated method stub
 		return new SuccessDataResult<List<Language>>(this.languagedao.findAll(),"languages listed");
 	}
+
+	@Override
+	public DataResult<List<Language>> getByJobhunter(int jobHunterId) {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<Language>>(this.languagedao.getByJobhunter_userId(jobHunterId));
+	}
 }

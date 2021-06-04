@@ -13,12 +13,12 @@ import Senpai.hrms.core.utilities.results.SuccessResult;
 import Senpai.hrms.dataAccess.abstracts.CoverLetterDao;
 import Senpai.hrms.entities.concretes.CoverLetter;
 @Service
-public class CoverLatterManager implements CoverLetterService {
+public class CoverLetterManager implements CoverLetterService {
 
 	private CoverLetterDao coverLetterdao;
 
 	@Autowired
-	public CoverLatterManager(CoverLetterDao coverLetterdao) {
+	public CoverLetterManager(CoverLetterDao coverLetterdao) {
 		super();
 		this.coverLetterdao = coverLetterdao;
 	}
@@ -33,6 +33,12 @@ public class CoverLatterManager implements CoverLetterService {
 	public DataResult<List<CoverLetter>> getAll() {
 		// TODO Auto-generated method stub
 		return new SuccessDataResult<List<CoverLetter>>(this.coverLetterdao.findAll(),"letters listed");
+	}
+
+	@Override
+	public DataResult<List<CoverLetter>> getByJobhunter(int jobHunterId) {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<CoverLetter>>(this.coverLetterdao.getByJobhunter_userId(jobHunterId));
 	}
 	
 }

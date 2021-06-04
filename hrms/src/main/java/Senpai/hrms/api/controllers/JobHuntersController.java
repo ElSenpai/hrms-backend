@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import Senpai.hrms.business.abstracts.JobHunterService;
@@ -41,6 +42,11 @@ public class JobHuntersController {
 	public ResponseEntity<?> add (@Valid @RequestBody JobHunter hunter){
 		
 		return ResponseEntity.ok(this.jobHuntService.add(hunter));
+	}
+	
+	@GetMapping("/cv")
+	public ResponseEntity<?> getCv(@RequestParam int jobHunterId){
+		return ResponseEntity.ok(this.jobHuntService.getCv(jobHunterId));
 	}
 
 }

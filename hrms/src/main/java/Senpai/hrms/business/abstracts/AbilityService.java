@@ -11,4 +11,5 @@ public interface AbilityService {
 	Result add(Ability ability);
 		
 	DataResult<List<Ability>> getAll();
+	DataResult<List<Ability>> getByJobhunter(int JobHunterId);
 }
