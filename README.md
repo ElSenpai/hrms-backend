@@ -17,7 +17,7 @@ Add dependency in pom.xml (If nothing happened after saving , right click projec
         <version>1.29.0</version>
     </dependency>
 ```
-after register   [Cloudinary](https://cloudinary.com/documentation/java_integration) get your cloud name, api key and api secret .
+after register   [Cloudinary](https://cloudinary.com/) get your cloud name, api key and api secret .
 ![some](https://github.com/ElSenpai/practice/blob/main/html/img/api.png)
 ```Java
 // imports
