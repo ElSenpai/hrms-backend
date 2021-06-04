@@ -45,6 +45,7 @@ public class AuthManager implements AuthService {
 			return new ErrorDataResult<JobHunter>("Not Real Person!");
 		}
 		
+		
 		if(this.confirmPass(jobHunter.getPassword(), confirmPassword).isSuccess() )
 		{
 			
