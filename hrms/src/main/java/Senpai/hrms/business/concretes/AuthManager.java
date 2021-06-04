@@ -62,7 +62,7 @@ public class AuthManager implements AuthService {
 	@Override
 	public DataResult<Employer> registerEmployer(Employer employer, String confirmPassword) {
 		
-		if(this.confirmPass(employer.getPassword(), confirmPassword).isSuccess()) {
+		if(!this.confirmPass(employer.getPassword(), confirmPassword).isSuccess()) {
 			if(this.checkEmailDomain(employer.getEmail(), employer.getWebsite()).isSuccess()) {
 				
 			   this.employerService.add(employer);
