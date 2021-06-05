@@ -52,7 +52,7 @@ public class JobHunter extends User {
 	@Column(name="national_identity")
 	private String nationalIdentity;
 	
-	@OneToOne(mappedBy="jobhunter")
+	@OneToOne(mappedBy="jobhunter", fetch=FetchType.LAZY)
 	@JsonIgnore
 	private Image image;
 	
@@ -77,7 +77,7 @@ public class JobHunter extends User {
 	private List<Link> link;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="jobhunter", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="jobhunter")
 	private List<CoverLetter> coverLetter;
 	
 
