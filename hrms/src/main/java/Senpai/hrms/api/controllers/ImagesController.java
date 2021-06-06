@@ -5,7 +5,7 @@ package Senpai.hrms.api.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +21,7 @@ import Senpai.hrms.business.abstracts.ImageService;
 
 @RestController
 @RequestMapping("/api/images")
+@CrossOrigin
 public class ImagesController {
 
 	private ImageService imageService;

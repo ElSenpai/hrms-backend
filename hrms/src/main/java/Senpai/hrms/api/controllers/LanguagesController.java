@@ -2,6 +2,7 @@ package Senpai.hrms.api.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import Senpai.hrms.entities.concretes.Language;
 
 @RestController
 @RequestMapping("/api/languages")
+@CrossOrigin
 public class LanguagesController {
 
 	private LanguageService languageService;

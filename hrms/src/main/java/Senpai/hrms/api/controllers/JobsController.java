@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,7 @@ import Senpai.hrms.entities.concretes.Job;
 
 @RestController
 @RequestMapping("/api/jobs")
+@CrossOrigin
 public class JobsController {
 	
 	private JobService jobService;
