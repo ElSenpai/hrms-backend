@@ -16,12 +16,12 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name="job_advertisements")
+@Table(name="job_postings")
 
 
 @AllArgsConstructor
 @NoArgsConstructor
-public class JobAdvertisement {
+public class JobPosting {
 
 	
 	  @Id
@@ -41,8 +41,6 @@ public class JobAdvertisement {
 	  @Column(name="requirements")
 	  private String requirements;
 	  
-	  @Column(name="name")
-	  private String name;
 	
 	  @Column(name="open_positions")
 	  private int openPositions;

@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisement"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobPosting"})
 public class Employer extends User {
 	//@Id
 	//@GeneratedValue
@@ -45,6 +45,6 @@ public class Employer extends User {
 	private boolean isActivated;
 	
 	   @OneToMany(mappedBy="employer")
-	    private List<JobAdvertisement> jobAdvertisement;
+	    private List<JobPosting> jobPosting;
 	
 }

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AdvertisementDto {
+public class JobPostingDto {
 
 	private int id;
 	private String companyName;
