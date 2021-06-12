@@ -44,6 +44,10 @@ public class JobPostingsController {
 	public DataResult<List<JobPosting>> getAllByConfirmed(@RequestParam boolean confirm) {
 		return this.jobPostingService.getAllConfirmed(confirm);
 	}
+	@GetMapping("/getallbyemployerid")
+	public DataResult<List<JobPosting>> getAllByConfirmed(@RequestParam int employerId) {
+		return this.jobPostingService.getByEmloyerId(employerId);
+	}
 	
 	@PostMapping("/add")
 	   public void add( @RequestBody JobPosting advertisement) {

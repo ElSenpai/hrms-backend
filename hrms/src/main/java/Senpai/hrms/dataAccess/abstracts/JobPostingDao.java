@@ -17,6 +17,7 @@ public interface JobPostingDao extends JpaRepository<JobPosting,Integer> {
 	
 	List<JobPosting> getAllByVerificationJobPostings_IsConfirmed(boolean confirmed );
 	
+	List<JobPosting> getByEmployerId(int employerId);
 
 	
 }

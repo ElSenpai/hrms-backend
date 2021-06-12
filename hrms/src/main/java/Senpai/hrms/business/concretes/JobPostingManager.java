@@ -58,6 +58,12 @@ public class JobPostingManager implements JobPostingService {
 		return new SuccessDataResult<List<JobPosting>>(this.jobPosting.getAllByVerificationJobPostings_IsConfirmed(confirmed));
 	}
 
+	@Override
+	public DataResult<List<JobPosting>> getByEmloyerId(int employerId) {
+		// TODO Auto-generated method stub
+		return new SuccessDataResult<List<JobPosting>>(this.jobPosting.getByEmployerId(employerId));
+	}
+
 
 
 }
