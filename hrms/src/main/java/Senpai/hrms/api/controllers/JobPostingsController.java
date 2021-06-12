@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import Senpai.hrms.business.abstracts.JobPostingService;
@@ -39,10 +40,11 @@ public class JobPostingsController {
 	public DataResult<List<JobPosting>> getAllByDate() {
 		return this.jobPostingService.getAllSortedByDate();
 	}
-	@GetMapping("/getallbyactive")
-	public DataResult<List<JobPostingDto>> getAllByActive() {
-		return this.jobPostingService.getAllByActive();
+	@GetMapping("/getallbyconfirmed")
+	public DataResult<List<JobPosting>> getAllByConfirmed(@RequestParam boolean confirm) {
+		return this.jobPostingService.getAllConfirmed(confirm);
 	}
+	
 	@PostMapping("/add")
 	   public void add( @RequestBody JobPosting advertisement) {
 	       this.jobPostingService.add(advertisement);
@@ -52,10 +54,7 @@ public class JobPostingsController {
 	       this.jobPostingService.update(advertisement);
 	    }
 	    
-	    @GetMapping("/getalldetail")
-		public DataResult<List<JobPostingDto>> getAllDetail() {
-			return this.jobPostingService.getAllDetail();
-		}
+	    
 	
 	
 }

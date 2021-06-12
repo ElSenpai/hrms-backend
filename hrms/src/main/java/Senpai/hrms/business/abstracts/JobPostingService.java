@@ -12,8 +12,7 @@ import Senpai.hrms.entities.dto.JobPostingDto;
 public interface JobPostingService {
 
 	DataResult<List<JobPosting>> getAll();
-	DataResult<List<JobPostingDto>> getAllDetail();
-	DataResult<List<JobPostingDto>> getAllByActive();
+	DataResult<List<JobPosting>> getAllConfirmed(boolean confirmed);
 	DataResult<List<JobPosting>> getAllSortedByDate();
 	Result add(JobPosting advertisement);
 	Result update(JobPosting advertisement);

@@ -27,8 +27,7 @@ public class VerificationByEmployee {
 	 @Column(name="employer_id")
 	private int employerId;
 	
-	 @Column(name="employee_id")
-	private int employeeId;
+
 	
 	
 	 @Column(name="confirm_date",columnDefinition = "Date default CURRENT_DATE")

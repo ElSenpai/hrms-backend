@@ -45,11 +45,7 @@ public class JobPostingManager implements JobPostingService {
 		return new SuccessResult("Job advertisements updated!");
 	}
 
-	@Override
-	public DataResult<List<JobPostingDto>> getAllByActive() {
-		
-		return new SuccessDataResult<List<JobPostingDto>>(this.jobPosting.getAdvertisementDetailByActive());
-	}
+
 	@Override
 	public DataResult<List<JobPosting>> getAllSortedByDate() {
 		Sort sort = Sort.by(Sort.Direction.ASC,"appDeadline");
@@ -57,9 +53,11 @@ public class JobPostingManager implements JobPostingService {
 	}
 
 	@Override
-	public DataResult<List<JobPostingDto>> getAllDetail() {
-		// TODO Auto-generated method stub
-		return new SuccessDataResult<List<JobPostingDto>>(this.jobPosting.getByAdvertisementDetail());
+	public DataResult<List<JobPosting>> getAllConfirmed(boolean confirmed) {
+		
+		return new SuccessDataResult<List<JobPosting>>(this.jobPosting.getAllByVerificationJobPostings_IsConfirmed(confirmed));
 	}
+
+
 
 }

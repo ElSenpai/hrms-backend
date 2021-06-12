@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Senpai.hrms.business.abstracts.EmployerService;
-import Senpai.hrms.business.abstracts.JobAdvertisementService;
+
 import Senpai.hrms.business.abstracts.UserService;
 import Senpai.hrms.core.utilities.results.DataResult;
 import Senpai.hrms.core.utilities.results.ErrorResult;

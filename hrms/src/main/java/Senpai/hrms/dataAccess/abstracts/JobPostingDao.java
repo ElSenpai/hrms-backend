@@ -12,14 +12,11 @@ import Senpai.hrms.entities.dto.JobPostingDto;
 
 public interface JobPostingDao extends JpaRepository<JobPosting,Integer> {
 
-	@Query("From JobAdvertisement where isActive=true ")
+	@Query("From JobPosting  where isActive=true ")
 	List<JobPosting> getByIsActive();
 	
-	@Query("Select new Senpai.hrms.entities.dto.JobPostingDto(j.id, e.companyName,j.openPositions,j.appDate,j.appDeadline,j.isActive) From Employer e Inner Join e.jobAdvertisement j ")
-	List<JobPostingDto> getByAdvertisementDetail();
+	List<JobPosting> getAllByVerificationJobPostings_IsConfirmed(boolean confirmed );
 	
-	@Query("Select new Senpai.hrms.entities.dto.JobPostingDto(j.id, e.companyName,j.openPositions,j.appDate,j.appDeadline,j.isActive) From Employer e Inner Join e.jobAdvertisement j Where j.isActive=true ")
-	List<JobPostingDto> getAdvertisementDetailByActive();
-	
+
 	
 }
