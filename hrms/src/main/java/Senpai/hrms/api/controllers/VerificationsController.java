@@ -37,8 +37,8 @@ public class VerificationsController {
 	return	this.verifiy.verify(job);
 		
 	}
-	@GetMapping("/getallconfirmed")
+	@GetMapping("/getall")
 	public DataResult<List<VerificationJobPosting>> getall(){
-		return this.verifiy.getAllConfirmed();
+		return this.verifiy.getAll();
 	}
 }

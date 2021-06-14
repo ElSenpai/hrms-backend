@@ -61,7 +61,7 @@ public class JobPostingManager implements JobPostingService {
 	@Override
 	public DataResult<List<JobPosting>> getByEmloyerId(int employerId) {
 		// TODO Auto-generated method stub
-		return new SuccessDataResult<List<JobPosting>>(this.jobPosting.getByEmployerId(employerId));
+		return new SuccessDataResult<List<JobPosting>>(this.jobPosting.getByEmployer_userId(employerId));
 	}
 
 

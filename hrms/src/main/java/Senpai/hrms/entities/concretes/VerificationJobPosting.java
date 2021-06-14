@@ -40,16 +40,14 @@ public class VerificationJobPosting {
 	private LocalDate confirmDate;
 	
 	
-	@OneToOne(optional = false, fetch = FetchType.LAZY)
+	@OneToOne( fetch = FetchType.LAZY)
 	@JoinColumn(name="job_posting_id")
-	
 	private JobPosting jobPosting;
 	
 	
 	
 	@ManyToOne
 	@JoinColumn(name="employee_id" )
-	
 	private Employee employee;
 	
 	

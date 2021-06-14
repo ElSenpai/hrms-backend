@@ -9,6 +9,6 @@ import Senpai.hrms.entities.concretes.VerificationJobPosting;
 public interface VerificationJobPostingService {
 	
 	 Result verify (VerificationJobPosting verify);
-	 DataResult<List<VerificationJobPosting>> getAllConfirmed();
+	 DataResult<List<VerificationJobPosting>> getAll();
 
 }

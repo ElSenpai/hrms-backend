@@ -41,11 +41,11 @@ public class JobPostingsController {
 		return this.jobPostingService.getAllSortedByDate();
 	}
 	@GetMapping("/getallbyconfirmed")
-	public DataResult<List<JobPosting>> getAllByConfirmed(@RequestParam boolean confirm) {
-		return this.jobPostingService.getAllConfirmed(confirm);
+	public DataResult<List<JobPosting>> getAllByConfirmed(@RequestParam boolean confirmed) {
+		return this.jobPostingService.getAllConfirmed(confirmed);
 	}
 	@GetMapping("/getallbyemployerid")
-	public DataResult<List<JobPosting>> getAllByConfirmed(@RequestParam int employerId) {
+	public DataResult<List<JobPosting>> getAllByEmployerId(@RequestParam int employerId) {
 		return this.jobPostingService.getByEmloyerId(employerId);
 	}
 	

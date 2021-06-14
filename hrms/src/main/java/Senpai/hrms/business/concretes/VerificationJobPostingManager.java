@@ -34,9 +34,9 @@ public class VerificationJobPostingManager implements VerificationJobPostingServ
 
 
 	@Override
-	public DataResult<List<VerificationJobPosting>> getAllConfirmed() {
+	public DataResult<List<VerificationJobPosting>> getAll() {
 		// TODO Auto-generated method stub
-		return new SuccessDataResult<List<VerificationJobPosting>>(this.verification.getByIsActive());
+		return new SuccessDataResult<List<VerificationJobPosting>>(this.verification.findAll());
 	}
 
 }
