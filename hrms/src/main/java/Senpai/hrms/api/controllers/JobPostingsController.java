@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,9 +41,9 @@ public class JobPostingsController {
 	public DataResult<List<JobPosting>> getAllByDate() {
 		return this.jobPostingService.getAllSortedByDate();
 	}
-	@GetMapping("/getallbyconfirmed")
-	public DataResult<List<JobPosting>> getAllByConfirmed(@RequestParam boolean confirmed) {
-		return this.jobPostingService.getAllConfirmed(confirmed);
+	@GetMapping("/getallbystatus")
+	public DataResult<List<JobPosting>> getAllByStatus(@RequestParam String status) {
+		return this.jobPostingService.getAllConfirmed(status);
 	}
 	@GetMapping("/getallbyemployerid")
 	public DataResult<List<JobPosting>> getAllByEmployerId(@RequestParam int employerId) {
@@ -51,12 +52,22 @@ public class JobPostingsController {
 	
 	@PostMapping("/add")
 	   public void add( @RequestBody JobPosting advertisement) {
+		
+		
 	       this.jobPostingService.add(advertisement);
 	  }
 	    @PostMapping("/update")
 	   public void update(@RequestBody JobPosting advertisement) {
 	       this.jobPostingService.update(advertisement);
 	    }
+	    
+	    @GetMapping("/yanbal")
+		public ResponseEntity<?> test(String status){
+			
+			return ResponseEntity.ok(this.jobPostingService.yanbal(status));
+		}
+	    
+	    
 	    
 	    
 	

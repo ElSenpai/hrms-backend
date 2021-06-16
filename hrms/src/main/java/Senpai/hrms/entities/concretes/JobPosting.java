@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","verificationJobPostings"})
+//@JsonIgnoreProperties({"hibernateLazyInitializer","handler","verificationJobPostings"})
 public class JobPosting {
 
 	
@@ -85,9 +85,9 @@ public class JobPosting {
 	  private EmploymentType employmentType;
 	  
 	  
-	  @OneToOne(mappedBy="jobPosting" ,fetch = FetchType.LAZY)	 
-	  private VerificationJobPosting verificationJobPostings;
-	  
+	  @OneToMany(mappedBy="jobPosting")
+		 @JsonIgnore
+	     private List<PostingStatus> postingStatus;
 	
 	
 }

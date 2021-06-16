@@ -4,11 +4,12 @@ import java.util.List;
 
 import Senpai.hrms.core.utilities.results.DataResult;
 import Senpai.hrms.core.utilities.results.Result;
-import Senpai.hrms.entities.concretes.Employee;
 import Senpai.hrms.entities.concretes.PostingStatus;
 
-public interface EmployeeService {
+public interface PostingStatusService {
+	
+	Result add(PostingStatus status);
+	
+	DataResult<List<PostingStatus>> getAll();
 
-	DataResult<List<Employee>> getAll();
-	Result confirm(PostingStatus status);
 }

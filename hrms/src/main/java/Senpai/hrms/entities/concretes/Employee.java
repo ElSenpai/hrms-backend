@@ -39,9 +39,9 @@ public class Employee extends User {
 	private String lastName;
 	
 	
-	@OneToMany(mappedBy="employee" )
-	//@JsonIgnore
-	private List<VerificationJobPosting> verificationJobPosting;
+	 @OneToMany(mappedBy="employee")
+	 @JsonIgnore
+     private List<PostingStatus> postingStatus;
 	
 	
 	
